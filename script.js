@@ -1,0 +1,1 @@
+(function g(){try{return document.getElementsByTagName('iframe')[0].contentDocument.getElementsByClassName('bulb-editor bulb-editor-inner')[0].innerText}catch(e){}})()

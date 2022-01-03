@@ -1,0 +1,4 @@
+rootProject.name='get_config'
+include ':sample'
+include ':lib_getconfig'
+include ':lib_getconfig'
