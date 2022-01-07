@@ -40,10 +40,7 @@ public class GecWebViewDataRequest implements IDataRequest {
     }
 
     private void initRequester() {
-        WebSettings settings = mWebView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        mWebView.clearHistory();
         mWebView.setWebViewClient(new DRWebViewClient());
     }
 
@@ -57,10 +54,7 @@ public class GecWebViewDataRequest implements IDataRequest {
     @Override
     public void release() {
         Logg.d(TAG, "release");
-        WebViewCachePool.get().removeWebView(mWebView.getContext());
-        mWebView.stopLoading();
-        mWebView.destroy();
-        mWebView = null;
+        WebViewCachePool.get().destroy();
         if (mHandler != null) {
             mHandler.removeCallbacksAndMessages(null);
             mHandler = null;
